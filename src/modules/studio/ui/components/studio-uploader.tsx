@@ -21,6 +21,7 @@ export const StudioUploader = ({
   return (
     <div>
       <MuxUploader
+        onSuccess={onSuccess}
         id={UPLOADER_ID}
         className="hidden group/uploader"
         endpoint={endpoint}
@@ -31,33 +32,25 @@ export const StudioUploader = ({
             <UploadIcon className="size-10 text-muted-foreground group/drop-[&[active]]:animate-bounce transition-all duration-300" />
           </div>
           <div className="flex flex-col gap-2 text-center">
-            <p className="text-sm">
-              Drag and drop video files to upload
-            </p>
+            <p className="text-sm">Drag and drop video files to upload</p>
             <p className="text-xs text-muted-foreground">
               Your videos will be private until you publish them
             </p>
           </div>
           <MuxUploaderFileSelect muxUploader={UPLOADER_ID}>
-            <Button type='button' className="rounded-full">
+            <Button type="button" className="rounded-full">
               Select files
             </Button>
           </MuxUploaderFileSelect>
         </div>
         <span slot="separator" className="hidden" />
-        <MuxUploaderStatus 
+        <MuxUploaderStatus muxUploader={UPLOADER_ID} className="text-sm" />
+        <MuxUploaderProgress
           muxUploader={UPLOADER_ID}
           className="text-sm"
+          type="percentage"
         />
-        <MuxUploaderProgress 
-        muxUploader={UPLOADER_ID}
-        className="text-sm"
-        type="percentage"
-        />
-        <MuxUploaderProgress 
-        muxUploader={UPLOADER_ID}
-        type="bar"
-        />
+        <MuxUploaderProgress muxUploader={UPLOADER_ID} type="bar" />
       </MuxUploaderDrop>
     </div>
   );
