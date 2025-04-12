@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/table";
 import { DEFAULT_LIMIT } from "@/constants";
 import { snakeCaseToTitle } from "@/lib/utils";
-import { VideoThumbnail } from "@/modules/videos/video-thumbail";
+import { VideoThumbnail } from "@/modules/videos/ui/components/video-thumbail";
 import { trpc } from "@/trpc/client";
 import Link from "next/link";
 import { Suspense } from "react";
